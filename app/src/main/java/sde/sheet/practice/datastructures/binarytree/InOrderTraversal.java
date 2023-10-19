@@ -14,21 +14,18 @@ public class InOrderTraversal {
     }
 
     private static void inOrderTraversalIterative(Node node) {
-        Stack<Node> nodeStack = new Stack<>();
-        List<Integer> nums = new ArrayList<>();
-        while (true) {
+        Stack<Node> inorder = new Stack();
+        while (true ) {
             if (node != null) {
-                nodeStack.push(node);
+                inorder.push(node);
                 node = node.left;
             } else {
-                if (nodeStack.isEmpty()) break;
-                Node current = nodeStack.peek();
-                nums.add(current.value);
-                nodeStack.pop();
-                node = current.right;
+                if (inorder.isEmpty()) break;
+                Node pop = inorder.pop();
+                System.out.println(pop.value  );
+                node = pop.right;
             }
         }
-        System.out.println(nums);
     }
 
     private static void inOrderTraversal(Node root) {

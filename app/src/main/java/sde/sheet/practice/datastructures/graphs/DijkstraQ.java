@@ -3,23 +3,13 @@ package sde.sheet.practice.datastructures.graphs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
-class DjPair {
-    int distance;
-    int node;
 
-    public DjPair(int distance, int node) {
-        this.distance = distance;
-        this.node = node;
-    }
-
-    public String toString() {
-        return "dist = " + distance + "; node = " + node;
-    }
-}
-public class DijkstraPQ {
+public class DijkstraQ {
     public static void main(String[] args) {
         int[][] edges = {{1,2,2},{2,5,5},{2,3,4},{1,4,1},{4,3,3},{3,5,1}};
         List<List<DjPair>> adj = new ArrayList<>();
@@ -37,7 +27,7 @@ public class DijkstraPQ {
 
     private static int[] shortestPaths(List<List<DjPair>> adj, int startingNode) {
         //initialize pq
-        PriorityQueue<DjPair> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a.distance));
+        Queue<DjPair> priorityQueue = new LinkedList<>();
         int[] dist = new int[adj.size()];
         Arrays.fill(dist, Integer.MAX_VALUE);
         priorityQueue.add(new DjPair(0, startingNode));
