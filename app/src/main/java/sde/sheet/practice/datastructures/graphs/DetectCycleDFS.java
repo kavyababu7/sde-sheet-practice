@@ -1,21 +1,26 @@
 package sde.sheet.practice.datastructures.graphs;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DetectCycleDFS {
     public static void main(String[] args) {
-        List<List<Integer>> adjacency = GraphInitializer.buildCyclic();
-        boolean[] visited = new boolean[adjacency.size()];
-        System.out.println(dfs(adjacency, 1, visited));
-        adjacency = GraphInitializer.buildType1();
-        visited = new boolean[adjacency.size()];
-        System.out.println(dfs(adjacency, 1, visited));
-        adjacency = GraphInitializer.buildDisconnected();
-        System.out.println(detectCycleInComponent(adjacency));
-        adjacency = GraphInitializer.buildDisconnectedCycle();
-        System.out.println(detectCycleInComponent(adjacency));
+//        List<List<Integer>> adjacency = GraphInitializer.buildCyclic();
+//        boolean[] visited = new boolean[adjacency.size()];
+//        System.out.println(dfs(adjacency, 1, visited));
+//        adjacency = GraphInitializer.buildType1();
+//        visited = new boolean[adjacency.size()];
+//        System.out.println(dfs(adjacency, 1, visited));
+//        adjacency = GraphInitializer.buildDisconnected();
+//        System.out.println(detectCycleInComponent(adjacency));
+//        adjacency = GraphInitializer.buildDisconnectedCycle();
+//        System.out.println(detectCycleInComponent(adjacency));
+        List<List<Integer>> collect = Stream.generate(ArrayList<Integer>::new).limit(60).collect(Collectors.toList());
+
     }
 
     private static boolean dfs(List<List<Integer>> adjacency, int node, boolean[] visited) {

@@ -5,13 +5,15 @@ import java.util.Queue;
 
 public class IslandCounter {
     public static void main(String[] args) {
-        int[][] ocean = {
-                         {0, 1, 1, 0},
-                         {0, 1, 1, 0},
-                         {0, 0, 1, 0},
-                         {0, 0, 0, 0},
-                         {1, 1, 0, 1}
-                        };
+//        int[][] ocean = {
+//                         {0, 1, 1, 0},
+//                         {0, 1, 1, 0},
+//                         {0, 0, 1, 0},
+//                         {0, 0, 0, 0},
+//                         {1, 1, 0, 1}
+//                        };
+        int[][] ocean = {{1,1,0,0,0},{1,1,0,0,0},{0,0,1,0,0},{0,0,0,1,1}};
+
         int rows = ocean.length;
         int cols = ocean[0].length;
         //created visited matrix

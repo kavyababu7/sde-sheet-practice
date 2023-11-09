@@ -9,6 +9,7 @@ public class NthPermutation {
         int[] arr = {1, 3, 2};
         boolean[] taken = new boolean[3];
         List<Integer> numbers = new ArrayList<>();
+        Arrays.asList(new int[9]);
         List<List<Integer>> permutationsList = new ArrayList<>();
         getPermutations(0, arr, taken, numbers, permutationsList);
         System.out.println(permutationsList);

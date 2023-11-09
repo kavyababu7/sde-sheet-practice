@@ -29,7 +29,7 @@ public class CheckBalanced {
         int rightHt = heightBalanced(node.left);
         if(rightHt == -1) return -1;
         if (Math.abs(leftHt - rightHt) > 1) return -1;
-        return Math.abs(leftHt - rightHt) + 1;
+        return Math.max(leftHt, rightHt) + 1;
     }
 
     private static Boolean isBalanced(Node node) {

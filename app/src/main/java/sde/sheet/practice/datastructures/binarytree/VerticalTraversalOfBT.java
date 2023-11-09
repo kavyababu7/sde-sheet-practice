@@ -21,13 +21,7 @@ public class VerticalTraversalOfBT {
             Pair nodeDetail = nodeDetailQueue.remove();
             int currentNodeLevel = nodeDetail.level;
             Node currentNode = nodeDetail.node;
-            if (verticalViewMap.containsKey(currentNodeLevel)) {
-                verticalViewMap.get(currentNodeLevel).add(currentNode.value);
-            } else {
-                List<Integer> list = new ArrayList<>();
-                list.add(currentNode.value);
-                verticalViewMap.put(currentNodeLevel, list);
-            }
+            verticalViewMap.computeIfAbsent(currentNodeLevel, v -> new ArrayList<>()).add(currentNode.value);
             if (currentNode.left != null) {
                 nodeDetailQueue.add(new Pair(currentNodeLevel - 1, currentNode.left));
             }

@@ -2,8 +2,9 @@ package sde.sheet.practice.datastructures.graphs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class BFSTraversal {
     public static void main(String[] args) {
@@ -31,5 +32,28 @@ public class BFSTraversal {
             }
         }
         return bfs;
+    }
+
+    public static ArrayList<ArrayList<Integer>> depthFirstSearch(int v, int e, ArrayList<ArrayList<Integer>> edges) {
+        boolean[] visited = new boolean[edges.size()];
+        int node = 0;
+        Map<Integer, ArrayList<Integer>> dfsList = new HashMap();
+        dfs(edges, v, node, visited, dfsList);
+        return (ArrayList<ArrayList<Integer>>) dfsList.values().stream().collect(Collectors.toList());
+
+    }
+
+    private static void dfs (
+            ArrayList<ArrayList<Integer>> edge,
+            int v, int node, boolean[] visited,
+            Map<Integer, ArrayList<Integer>> dfsList) {
+        visited[node] = true;
+        dfsList.computeIfAbsent(node, k -> new ArrayList()).add(node);
+        for (Integer neighbor : edge.get(node)) {
+            if (!visited[neighbor]) {
+                dfsList.computeIfAbsent(node, k -> new ArrayList()).add(neighbor);
+                dfs(edge, v, neighbor, visited, dfsList);
+            }
+        }
     }
 }

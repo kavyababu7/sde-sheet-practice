@@ -15,6 +15,7 @@ public class LevelOrderTraversal {
     private static void levelOrderTraversal(Node node) {
         Queue<Node> nodeQueue = new LinkedList<>();
         List<Integer> levelTraversal = new ArrayList<>();
+//        Queue<int[]>
         nodeQueue.add( node);
         while (!nodeQueue.isEmpty()) {
             Node pop = nodeQueue.remove();
