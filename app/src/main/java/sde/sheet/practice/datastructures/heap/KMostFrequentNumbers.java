@@ -19,7 +19,7 @@ public class KMostFrequentNumbers {
         for (int num: nums) {
             freqMap.merge(num, 1, Integer::sum);
         }
-        nums=new int[]{1};
+        nums=new int[1];
         List<Integer>[] bucketList = new List[nums.length+1];
         for (Map.Entry<Integer, Integer> entry: freqMap.entrySet()) {
             if (bucketList[entry.getValue()] == null) {
@@ -27,6 +27,9 @@ public class KMostFrequentNumbers {
             }
             bucketList[entry.getValue()].add(entry.getKey());
         }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a,b) -> b.getValue() - a.getValue());
+
         int[] result = new int[k];
         for (int i  = nums.length; i > 0 && k > 0; i--) {
             if (bucketList[i] != null) {

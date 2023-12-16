@@ -67,3 +67,12 @@ class IntPair {
         this.value = value;
     }
 }
+
+class KPair {
+    int[] coords;
+    double dist;
+    KPair(int[] coords, double dist) {
+        this.coords = coords;
+        this.dist = dist;
+    }
+}

@@ -23,8 +23,8 @@ public class PreOrderTraversal {
                 node = node.left;
             } else {
                 if (nodeStack.isEmpty()) break;
-                node = nodeStack.pop();
-                node = node.right;
+                Node pop = nodeStack.pop();
+                node = pop.right;
             }
         }
         System.out.println(nums);

@@ -15,14 +15,16 @@ public class InOrderTraversal {
 
     private static void inOrderTraversalIterative(Node node) {
         Stack<Node> inorder = new Stack();
-        while (true ) {
+        while (true) {
             if (node != null) {
                 inorder.push(node);
                 node = node.left;
             } else {
-                if (inorder.isEmpty()) break;
+                if (inorder.isEmpty()) {
+                    break;
+                }
                 Node pop = inorder.pop();
-                System.out.println(pop.value  );
+                System.out.println(pop);
                 node = pop.right;
             }
         }

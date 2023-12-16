@@ -19,7 +19,6 @@ public class TraceANodePath {
         if (node.value == item) {
             return true;
         }
-
         if (traceTheNode(item, node.left, path) || traceTheNode(item, node.right, path)) {
             return true;
         }
