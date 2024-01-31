@@ -2,6 +2,7 @@ package sde.sheet.practice.interval;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +16,7 @@ public class MergeInterval {
 //        int[][] arr = {{2,3},{4,5},{6,7},{8,9},{1,10}};
 //        int[][] arr = {{1,4},{0,4}};
         int[][] arr = {{4,5},{1,4},{0,1}};
-        System.out.println(merge(arr));
+        System.out.println(Arrays.stream(merge(arr)).toList());
     }
     public static int[][] merge(int[][] intervals) {
         List<int[]> result = new ArrayList();

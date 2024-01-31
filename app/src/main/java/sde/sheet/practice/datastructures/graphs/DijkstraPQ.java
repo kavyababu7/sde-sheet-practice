@@ -48,7 +48,7 @@ public class DijkstraPQ {
             int node = pair.node;
             for (DjPair neighbor : adj.get(node)) {
                 int delta = neighbor.distance + distance;
-                if (delta < dist[neighbor.node]) {
+                if (neighbor.distance + distance < dist[neighbor.node]) {
                     dist[neighbor.node] = delta;
                     priorityQueue.add(new DjPair(delta, neighbor.node));
                 }

@@ -16,15 +16,12 @@ public class ReverseLL {
     }
 
     private static ListNode reverseLinkedList(ListNode head) {
-        ListNode prev = null;
-        ListNode next = null;
-        ListNode current = head;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        return prev;
+       if (head == null || head.next == null) {
+           return head;
+       }
+       ListNode rest = reverseLinkedList(head.next);
+       head.next.next = head;
+       head.next = null;
+       return rest;
     }
 }

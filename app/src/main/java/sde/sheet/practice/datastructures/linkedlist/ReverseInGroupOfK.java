@@ -20,8 +20,51 @@ public class ReverseInGroupOfK {
         listNode5.next = listNode6;
         listNode6.next = listNode7;
         listNode7.next = listNode8;
-        print(reverseInGroupOfK(listNode1, 3));
+//        print(reverseInGroupOfK(listNode1, 3));
+        print(reverseKGroup(listNode1, 3));
     }
+
+    /**
+     * Definition for singly-linked list.
+     * public class Node {
+     * int val;
+     * Node next;
+     * Node() {}
+     * Node(int val) { this.val = val; }
+     * Node(int val, Node next) { this.val = val; this.next = next; }
+     * }
+     */
+
+    public static Node reverseKGroup(Node head, int k) {
+        Node dummy = new Node(0, head);
+        Node groupPrevious = dummy;
+        while (true) {
+            Node kth = kth(groupPrevious, k);
+            if (kth == null) break;
+            Node groupNext = kth.next;
+            Node curr = groupPrevious.next;
+            Node prev = kth.next;
+            while (curr != null) {
+                Node temp = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = temp;
+            }
+            Node temp = groupPrevious.next;
+            groupPrevious.next = kth;
+            groupPrevious = temp;
+        }
+        return dummy.next;
+    }
+
+    private static Node kth(Node head, int k) {
+        while (head != null && k > 0) {
+            head = head.next;
+            k--;
+        }
+        return head;
+    }
+
 
     private static Node reverseInGroupOfK(Node head, int K) {
         Node dummy = new Node(0, null);
@@ -54,7 +97,7 @@ public class ReverseInGroupOfK {
         return len;
     }
 
-    static void print (Node node) {
+    static void print(Node node) {
         while (node != null) {
             System.out.printf(node.value + " ");
             node = node.next;

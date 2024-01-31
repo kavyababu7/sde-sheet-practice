@@ -5,8 +5,8 @@ import java.util.List;
 
 public class CombinationSumNoDup {
     public static void main(String[] args) {
-        int K = 4;
-        int[] arr = {1,2,1};
+        int K = 7;
+        int[] arr = {2,3,6,7};
         List<List<Integer>> answers = new ArrayList<>();
         List<Integer> interArray = new ArrayList<>();
         subsequenceOfSumK(arr, K, 0, interArray, answers, 0);

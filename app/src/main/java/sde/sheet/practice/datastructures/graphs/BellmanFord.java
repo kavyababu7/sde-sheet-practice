@@ -2,7 +2,9 @@ package sde.sheet.practice.datastructures.graphs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 import static java.lang.Integer.MAX_VALUE;
 
@@ -40,6 +42,9 @@ public class BellmanFord {
                 }
             }
         }
+        Stack<Integer> stack = new Stack<>();
+        stack.toArray(new Integer[0]);
+        stack.sort(Collections.reverseOrder());
         for (List<Integer> edge : edges) {
             Integer a = edge.get(0);
             Integer b = edge.get(1);
